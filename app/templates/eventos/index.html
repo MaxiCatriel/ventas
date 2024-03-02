@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block titulo %}Lista de Eventos{% endblock %}
+{% block contenido %}
+
+<div class="card">
+    <div class="card-header"> 
+    <a
+        name=""
+        id=""
+        class="btn btn-success"
+        href="{% url 'crear_evento' %}" role="button">Agregar Evento
+    </a>
+        
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Eventos</h4>
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-primary"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for eventos in eventos %}
+                    <tr class="">
+                        <td >{{ eventos.id }}</td>
+                        <td >{{ eventos.nombre }}</td>
+                        <td >
+                            <img  src="{{ eventos.imagen.url }}" height="100"></td>
+                        <td >{{ eventos.descripcion }}</td>
+                        
+                        <td><a
+                            name=""
+                            id=""
+                            class="btn btn-info"
+                            href="{% url 'editar' eventos.id %}"
+                            role="button"
+                            >Editar</a
+                        >
+                         | <a
+                            name=""
+                            id=""
+                            class="btn btn-danger"
+                            href="{% url 'eliminar' eventos.id %}"
+                            role="button"
+                            >Borrar</a
+                         >
+                         </td>
+                    </tr>
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+{% endblock %}

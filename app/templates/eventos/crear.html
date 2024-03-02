@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block titulo %} Agregar Evento{% endblock %}
+{% block contenido %}
+
+<div class="card">
+
+    <div class="card-header">Crear Evento</div>
+
+    <div class="card-body">
+
+        <h4 class="card-title">Datos de Evento</h4>
+
+        {% include 'eventos/form.html'%}
+
+    </div>
+
+    <div class="card-footer text-muted">Footer</div>
+
+</div>
+
+
+{% endblock %}
